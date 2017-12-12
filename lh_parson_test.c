@@ -38,6 +38,7 @@ THE SOFTWARE.
 #define EPSILON 0.000001
 
 void test_suite_1(void); /* Test 3 files from json.org + serialization*/
+void test_suite_1_lh(void); /* Test 3 files from json.org + serialization*/
 void test_suite_2(JSON_Value *value); /* Test correctness of parsed values */
 //void test_suite_2_no_comments(void);
 //void test_suite_2_with_comments(void);
@@ -69,21 +70,54 @@ int main() {
   /* serialization_example(); */
   /* persistence_example(); */
   json_set_allocation_functions(counted_malloc, counted_free);
+  //test_suite_1_lh(); 
   test_suite_1();
-  //test_suite_2_no_comments();
-  //test_suite_2_with_comments();
+  test_suite_2_no_comments();
+  test_suite_2_with_comments();
   test_suite_3();
   test_suite_4();
   test_suite_5();
   test_suite_6();
   test_suite_7();
-  //test_suite_8();
-  //test_suite_9();
-  //test_suite_10();
+  test_suite_8();
+  test_suite_9();
+  test_suite_10();
   printf("Tests failed: %d\n", tests_failed);
   printf("Tests passed: %d\n", tests_passed);
   return 0;
 }
+void test_suite_1_lh(void) {
+  //JSON_Value *val;
+  //TEST((json_parse_file_exn("tests/test_1_1.txt")) != NULL);
+  //TEST((json_parse_file_exn("tests/test_1_1.txt")) != NULL);
+
+  //TEST((val = json_parse_file("tests/test_1_1.txt")) != NULL);
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
+  //if (val) { json_value_free(val); }
+
+  //TEST((val = json_parse_file("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  //if (val) { json_value_free(val); }
+
+  //TEST((val = json_parse_file("tests/test_1_3.txt")) != NULL);
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
+  //if (val) { json_value_free(val); }
+
+  //TEST((val = json_parse_file_with_comments("tests/test_1_1.txt")) != NULL);
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
+  //if (val) { json_value_free(val); }
+
+  //TEST((val = json_parse_file_with_comments("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  //if (val) { json_value_free(val); }
+
+  //TEST((val = json_parse_file_with_comments("tests/test_1_3.txt")) != NULL);
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
+  //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
+  //if (val) { json_value_free(val); }
+}
+
 
 void test_suite_1(void) {
   JSON_Value *val;
@@ -440,8 +474,8 @@ void test_suite_5(void) {
   TEST(json_value_equals(remove_test_val, json_parse_string("[2, 4]")));
 
   /* Testing nan and inf */
-  //TEST(json_object_set_number(obj, "num", 0.0 / 0.0) == JSONFailure);
-  //TEST(json_object_set_number(obj, "num", 1.0 / 0.0) == JSONFailure);
+  TEST(json_object_set_number(obj, "num", 0.0 / 0.0) == JSONFailure);
+  TEST(json_object_set_number(obj, "num", 1.0 / 0.0) == JSONFailure);
 }
 
 void test_suite_6(void) {
