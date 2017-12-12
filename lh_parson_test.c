@@ -70,7 +70,7 @@ int main() {
   /* serialization_example(); */
   /* persistence_example(); */
   json_set_allocation_functions(counted_malloc, counted_free);
-  //test_suite_1_lh(); 
+  //test_suite_1_lh();
   test_suite_1();
   test_suite_2_no_comments();
   test_suite_2_with_comments();
@@ -88,31 +88,31 @@ int main() {
 }
 void test_suite_1_lh(void) {
   //JSON_Value *val;
-  //TEST((json_parse_file_exn("tests/test_1_1.txt")) != NULL);
-  //TEST((json_parse_file_exn("tests/test_1_1.txt")) != NULL);
+  //TEST((json_parse_file_exn("../tests/test_1_1.txt")) != NULL);
+  //TEST((json_parse_file_exn("../tests/test_1_1.txt")) != NULL);
 
-  //TEST((val = json_parse_file("tests/test_1_1.txt")) != NULL);
+  //TEST((val = json_parse_file("../tests/test_1_1.txt")) != NULL);
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   //if (val) { json_value_free(val); }
 
-  //TEST((val = json_parse_file("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  //TEST((val = json_parse_file("../tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
   //if (val) { json_value_free(val); }
 
-  //TEST((val = json_parse_file("tests/test_1_3.txt")) != NULL);
+  //TEST((val = json_parse_file("../tests/test_1_3.txt")) != NULL);
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   //if (val) { json_value_free(val); }
 
-  //TEST((val = json_parse_file_with_comments("tests/test_1_1.txt")) != NULL);
+  //TEST((val = json_parse_file_with_comments("../tests/test_1_1.txt")) != NULL);
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   //if (val) { json_value_free(val); }
 
-  //TEST((val = json_parse_file_with_comments("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  //TEST((val = json_parse_file_with_comments("../tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
   //if (val) { json_value_free(val); }
 
-  //TEST((val = json_parse_file_with_comments("tests/test_1_3.txt")) != NULL);
+  //TEST((val = json_parse_file_with_comments("../tests/test_1_3.txt")) != NULL);
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   //TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   //if (val) { json_value_free(val); }
@@ -121,28 +121,28 @@ void test_suite_1_lh(void) {
 
 void test_suite_1(void) {
   JSON_Value *val;
-  TEST((val = json_parse_file("tests/test_1_1.txt")) != NULL);
+  TEST((val = json_parse_file("../tests/test_1_1.txt")) != NULL);
   TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   if (val) { json_value_free(val); }
 
-  TEST((val = json_parse_file("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  TEST((val = json_parse_file("../tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
   if (val) { json_value_free(val); }
 
-  TEST((val = json_parse_file("tests/test_1_3.txt")) != NULL);
+  TEST((val = json_parse_file("../tests/test_1_3.txt")) != NULL);
   TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   if (val) { json_value_free(val); }
 
-  TEST((val = json_parse_file_with_comments("tests/test_1_1.txt")) != NULL);
+  TEST((val = json_parse_file_with_comments("../tests/test_1_1.txt")) != NULL);
   TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   if (val) { json_value_free(val); }
 
-  TEST((val = json_parse_file_with_comments("tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
+  TEST((val = json_parse_file_with_comments("../tests/test_1_2.txt")) == NULL); /* Over 2048 levels of nesting */
   if (val) { json_value_free(val); }
 
-  TEST((val = json_parse_file_with_comments("tests/test_1_3.txt")) != NULL);
+  TEST((val = json_parse_file_with_comments("../tests/test_1_3.txt")) != NULL);
   TEST(json_value_equals(json_parse_string(json_serialize_to_string(val)), val));
   TEST(json_value_equals(json_parse_string(json_serialize_to_string_pretty(val)), val));
   if (val) { json_value_free(val); }
@@ -256,7 +256,7 @@ void test_suite_2(JSON_Value *root_value) {
 }
 
 void test_suite_2_no_comments(void) {
-  const char *filename = "tests/test_2.txt";
+  const char *filename = "../tests/test_2.txt";
   JSON_Value *root_value = NULL;
   root_value = json_parse_file(filename);
   test_suite_2(root_value);
@@ -266,7 +266,7 @@ void test_suite_2_no_comments(void) {
 }
 
 void test_suite_2_with_comments(void) {
-  const char *filename = "tests/test_2_comments.txt";
+  const char *filename = "../tests/test_2_comments.txt";
   JSON_Value *root_value = NULL;
   root_value = json_parse_file_with_comments(filename);
   test_suite_2(root_value);
@@ -341,7 +341,7 @@ void test_suite_3(void) {
 }
 
 void test_suite_4() {
-  const char *filename = "tests/test_2.txt";
+  const char *filename = "../tests/test_2.txt";
   JSON_Value *a = NULL, *a_copy = NULL;
   printf("Testing %s:\n", filename);
   a = json_parse_file(filename);
@@ -352,7 +352,7 @@ void test_suite_4() {
 }
 
 void test_suite_5(void) {
-  JSON_Value *val_from_file = json_parse_file("tests/test_5.txt");
+  JSON_Value *val_from_file = json_parse_file("../tests/test_5.txt");
 
   JSON_Value *val = NULL, *val_parent;
   JSON_Object *obj = NULL;
@@ -479,7 +479,7 @@ void test_suite_5(void) {
 }
 
 void test_suite_6(void) {
-  const char *filename = "tests/test_2.txt";
+  const char *filename = "../tests/test_2.txt";
   JSON_Value *a = NULL;
   JSON_Value *b = NULL;
   a = json_parse_file(filename);
@@ -494,7 +494,7 @@ void test_suite_6(void) {
 }
 
 void test_suite_7(void) {
-  JSON_Value *val_from_file = json_parse_file("tests/test_5.txt");
+  JSON_Value *val_from_file = json_parse_file("../tests/test_5.txt");
   JSON_Value *schema = json_value_init_object();
   JSON_Object *schema_obj = json_value_get_object(schema);
   JSON_Array *interests_arr = NULL;
@@ -511,8 +511,8 @@ void test_suite_7(void) {
 }
 
 void test_suite_8(void) {
-  const char *filename = "tests/test_2.txt";
-  const char *temp_filename = "tests/test_2_serialized.txt";
+  const char *filename = "../tests/test_2.txt";
+  const char *temp_filename = "../tests/test_2_serialized.txt";
   JSON_Value *a = NULL;
   JSON_Value *b = NULL;
   char *buf = NULL;
@@ -528,8 +528,8 @@ void test_suite_8(void) {
 }
 
 void test_suite_9(void) {
-  const char *filename = "tests/test_2_pretty.txt";
-  const char *temp_filename = "tests/test_2_serialized_pretty.txt";
+  const char *filename = "../tests/test_2_pretty.txt";
+  const char *temp_filename = "../tests/test_2_serialized_pretty.txt";
   char *file_contents = NULL;
   char *serialized = NULL;
   JSON_Value *a = NULL;
@@ -555,18 +555,18 @@ void test_suite_10(void) {
 
   malloc_count = 0;
 
-  val = json_parse_file("tests/test_1_1.txt");
+  val = json_parse_file("../tests/test_1_1.txt");
   json_value_free(val);
 
-  val = json_parse_file("tests/test_1_3.txt");
+  val = json_parse_file("../tests/test_1_3.txt");
   json_value_free(val);
 
-  val = json_parse_file("tests/test_2.txt");
+  val = json_parse_file("../tests/test_2.txt");
   serialized = json_serialize_to_string_pretty(val);
   json_free_serialized_string(serialized);
   json_value_free(val);
 
-  val = json_parse_file("tests/test_2_pretty.txt");
+  val = json_parse_file("../tests/test_2_pretty.txt");
   json_value_free(val);
 
   TEST(malloc_count == 0);
